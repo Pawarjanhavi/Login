@@ -5,6 +5,69 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Login/addUser": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FirstName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "LastName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "UserName",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "EmailId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          {
+            "name": "Password",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Login/login": {
       "post": {
         "tags": [
@@ -73,6 +136,7 @@
           {
             "name": "FirstName",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -80,6 +144,7 @@
           {
             "name": "LastName",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -87,6 +152,7 @@
           {
             "name": "UserName",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -94,13 +160,16 @@
           {
             "name": "EmailId",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "email"
             }
           },
           {
             "name": "Password",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
             }

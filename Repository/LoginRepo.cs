@@ -15,14 +15,22 @@ namespace Login.Repository
            
         }
 
-     
+        public User RegisterUser(User user)
+        {
+            // Don't set the user.Id explicitly
+            _dbContext.UserDB.Add(user);
+            _dbContext.SaveChanges();
+            return user;
+        }
+
+
 
         public User GetUserById(int id)
         {
             User user;
             try
             {
-                user = _dbContext.User.Find(id);
+                user = _dbContext.UserDB.Find(id);
                
             }
             catch (Exception ex)
@@ -35,7 +43,7 @@ namespace Login.Repository
 
         public User UpdateUser(User user)
         {
-            var existingUser = _dbContext.User.FirstOrDefault(u => u.Id == user.Id);
+            var existingUser = _dbContext.UserDB.Find(user.Id);
 
             if (existingUser != null)
             {
@@ -76,7 +84,7 @@ namespace Login.Repository
         public bool LoginUser(string userName, string password)
         {
             // Find the user by username
-            var user = _dbContext.User.FirstOrDefault(u => u.UserName == userName);
+            var user = _dbContext.UserDB.FirstOrDefault(u => u.UserName == userName);
 
             return user != null && user.Password == password;
 

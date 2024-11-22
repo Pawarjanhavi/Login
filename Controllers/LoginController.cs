@@ -15,6 +15,14 @@ namespace Login.Controllers
             _logininterface = loginInterface;
         }
 
+        [HttpPost("addUser")]
+        public IActionResult RegisterUser(User user)
+        {
+            if (user == null) return BadRequest("User data is required.");
+            var newUser = _logininterface.RegisterUser(user);
+            return CreatedAtAction(nameof(GetUserById), new { id = newUser.Id }, newUser);
+        }
+
         // Login User
         [HttpPost("login")]
         public IActionResult LoginUser([FromQuery] string username, [FromQuery] string password)
