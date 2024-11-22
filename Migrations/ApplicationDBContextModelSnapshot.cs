@@ -51,7 +51,7 @@ namespace Login.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
 
                     b.HasData(
                         new
@@ -71,6 +71,60 @@ namespace Login.Migrations
                             LastName = "Doe",
                             Password = "password456",
                             UserName = "janedoe"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EmailId = "michael.smith@example.com",
+                            FirstName = "Michael",
+                            LastName = "Smith",
+                            Password = "michael123",
+                            UserName = "michaelsmith"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EmailId = "emily.johnson@example.com",
+                            FirstName = "Emily",
+                            LastName = "Johnson",
+                            Password = "emily2024",
+                            UserName = "emilyj"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EmailId = "william.brown@example.com",
+                            FirstName = "William",
+                            LastName = "Brown",
+                            Password = "william@321",
+                            UserName = "william_b"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            EmailId = "olivia.taylor@example.com",
+                            FirstName = "Olivia",
+                            LastName = "Taylor",
+                            Password = "olivia@123",
+                            UserName = "olivia_t"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            EmailId = "james.martinez@example.com",
+                            FirstName = "James",
+                            LastName = "Martinez",
+                            Password = "james456",
+                            UserName = "james_m"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            EmailId = "sophia.davis@example.com",
+                            FirstName = "Sophia",
+                            LastName = "Davis",
+                            Password = "sophia789",
+                            UserName = "sophia.d"
                         });
                 });
 #pragma warning restore 612, 618
