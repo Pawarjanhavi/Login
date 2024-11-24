@@ -8,9 +8,9 @@ namespace Login.Controllers
     [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
-        LoginInterface _logininterface;
+        LoginRepo _logininterface;
 
-        public LoginController(LoginInterface loginInterface)
+        public LoginController(LoginRepo loginInterface)
         {
             _logininterface = loginInterface;
         }
@@ -20,7 +20,7 @@ namespace Login.Controllers
         {
             if (user == null) return BadRequest("User data is required.");
             var newUser = _logininterface.RegisterUser(user);
-            return CreatedAtAction(nameof(GetUserById), new { id = newUser.Id }, newUser);
+            return CreatedAtAction(nameof(GetUserById), new { id = newUser.UserId }, newUser);
         }
 
         // Login User

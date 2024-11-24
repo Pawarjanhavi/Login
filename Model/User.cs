@@ -5,26 +5,34 @@ namespace Login.Model
 {
     public class User
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int UserId { get; set; }
 
-        [Required]
-        public string FirstName { get; set; }
+        [Required(ErrorMessage = "First name is requires")]
+        public string? FirstName { get; set; }
 
-        [Required]
-        public string LastName { get; set; }
+        [Required(ErrorMessage = "Last name is required")]
+        public string? LastName { get; set; }
 
-        [Required]
-        public string UserName { get; set; }
+        [Required(ErrorMessage = "Email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email address")]
+        public string? Email { get; set; }
+        public string? UserName { get; set; }
 
-        [Required]
-        [EmailAddress]
-        public string EmailId { get; set; }
+        [Required(ErrorMessage = "Password required")]
+        public string? Password { get; set; }
 
-        [Required]
-        public string Password { get; set; }
+        [Required(ErrorMessage = "Phone number required")]
+        [Phone(ErrorMessage = "Invalid Format")]
+        public string? PhoneNumber { get; set; }
 
+        [Required(ErrorMessage = "User role required")]
+        public string roleType { get; set; }
+
+        //navigation properties
+
+        public ICollection<Review> reviews { get; set; }
+        public ICollection<Reservation> reservations { get; set; }
 
 
 

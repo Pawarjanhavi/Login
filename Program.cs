@@ -1,5 +1,6 @@
 using Login.Data;
 using Login.Repository;
+using Login.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<ApplicationDBContext>(
                 db => db.UseSqlServer(builder.Configuration.GetConnectionString("DBConnStr")));
 
-builder.Services.AddScoped<LoginInterface, LoginRepo>();
+builder.Services.AddScoped<ILoginService,LoginRepo>();
+builder.Services.AddScoped<IReservationService, ReservationRepo>();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
