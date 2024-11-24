@@ -116,5 +116,6 @@ namespace Login.Data
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Payment> Payment { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 }
